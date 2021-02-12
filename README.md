@@ -1,10 +1,8 @@
 # Capstone Project
 
-[YouTube!](https://www.youtube.com/watch?v=5mdBlyQqLQ8)
-
 ## Project Overview
 
-This is the capstone project as part of Azure Nanodegree Program, Machine Learning Engineer with Microsoft Azure.
+This is the capstone project, the last project, as part of Azure Nanodegree Program, Machine Learning Engineer with Microsoft Azure.
 
 As required by the project we have selected an external dataset "Heart failure clinical records" (detail section below) and performed machine learning task of predicting survival of patients facing heart failure (binary classification ) using 12 feautures identified in the data set. 
 
@@ -30,8 +28,6 @@ Based on comparison of two models we selected VotingEnsemble model from AutoML e
 ## Dataset used
 
 We have used Heart failure clinical records data set as published on "UCI Machine Learning Repository"and "Kaggle Heart Failure Prediction" competion. 
-
-This data set has been published as part of folowing paper: Davide Chicco, Giuseppe Jurman: "Machine learning can predict survival of patients with heart failure from serum creatinine and ejection fraction alone". BMC Medical Informatics and Decision Making 20, 16 (2020).
 
 This dataset contains the medical records of 299 heart failure patients collected at the Faisalabad Institute of Cardiology and at the Allied Hospital in Faisalabad (Punjab, Pakistan), during April–December 2015 [52, 66]. The patients consisted of 105 women and 194 men, and their ages range between 40 and 95 years old (Table 1). All 299 patients had left ventricular systolic dysfunction and had previous heart failures that put them in classes III or IV of New York Heart Association (NYHA) classification of the stages of heart failure.
 

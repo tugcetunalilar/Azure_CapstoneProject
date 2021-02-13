@@ -12,6 +12,7 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 
 run = Run.get_context()
 
+#Get the dataset from Github
 data_path= "https://raw.githubusercontent.com/tugcetunalilar/Azure_CapstoneProject/main/heart_failure_clinical_records_dataset.csv"
 data=TabularDatasetFactory.from_delimited_files(path=data_path)
 

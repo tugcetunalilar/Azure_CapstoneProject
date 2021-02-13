@@ -93,6 +93,19 @@ To deploy the model, we used the interface for deployment. We deployed the AutoM
 
 ![AutoMLDeployment](Images/AutoMLDeployment.png "AutoML Deployment")
 
+## Project Improvements
+
+Here is a list of some suggestions for project improvement in the future:
+
+1) Choosing a more powerful computer cluster to increase the concurrent iterations.
+
+2) Improve the dataset by adding more data so that we get more allocated to training and test datasets. 
+
+3) Tune more parameters in hyperdrive experiment
+
+4) Try Bayesian Parameter sampling for speed purposes
+
+
 ##Screen Recording
 *Youtube Link* -  - This is a video [screencast](https://www.youtube.com/watch?v=umoGFVxqQRQ&feature=youtu.be) of my going through the screenshots and the flow of the project. 
 

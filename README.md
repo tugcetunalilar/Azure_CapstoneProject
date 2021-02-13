@@ -25,6 +25,7 @@ Below are the settings and configuration for AutoML experiment:
 - Task defined as classification
 - Early stopping enabled as Bandit Policy
 
+![AutoMLSettingsandConfiguration](Images/AutoMLSettingsandConfiguration.png "AutoML Settings")
 
 ## Hyperparameter search: types of parameters and their ranges
 

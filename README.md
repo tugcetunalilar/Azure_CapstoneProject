@@ -34,6 +34,46 @@ The best model from AutoML was the one that used VotingEnsemble, which is a amal
 
 ![AutoMLParameters](Images/AutoMLParameters.png "AutoML Parameters")
 
+Below is a list of all metrics:
+
+Accuracy
+0.87966
+AUC macro
+0.91676
+AUC micro
+0.92262
+AUC weighted
+0.91676
+Average precision score macro
+0.90703
+Average precision score micro
+0.92596
+Average precision score weighted
+0.92974
+Balanced accuracy
+0.84759
+F1 score macro
+0.85448
+F1 score micro
+0.87966
+F1 score weighted
+0.87454
+Log loss
+0.37420
+Matthews correlation
+0.73514
+Norm macro recall
+0.69519
+Precision score macro
+0.89153
+Precision score micro
+0.87966
+Precision score weighted
+0.89391
+Recall score macro
+0.84759
+Recall score micro
+0.87966
 ## Hyperparameter Tuning:
 We chose Sci-kit learn logistic regression classifier for this model as the AutoML used classification. For this model, we tuned 2 hyperparameters: C and max_iter. Parameter C is the inverse of regularization strength, meaning it controls the regularization in a model, and we tested it using a sample space from 0.001 to 1000. Max_iter is the maximum number of iterations for the model to converge. We used random sampling. Below are the actual values we used for the experiment:
 

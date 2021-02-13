@@ -89,7 +89,7 @@ The model achieved an accuracy of 81%. The parameter results from the hyperdrive
 
 ## Deployed model and instructions on how to query the endpoint with a sample input
 We selected the model to deploy based on the primary metric, so we selected the autoML model as it had a higher accuracy of 88%. 
-To deploy the model, we used the interface for deployment. We deployed the AutoML using ACI. A REST API is produced at the end of deployment, which provides scoring uri with keys for authentication. 
+To deploy the model, we used the interface for deployment. We deployed the AutoML using ACI. A REST API is produced at the end of deployment, which provides scoring uri with keys for authentication. We passed test data in a json file and provided a response in expected format (1,0) to validate deployment.
 
 ![AutoMLDeployment](Images/AutoMLDeployment.png "AutoML Deployment")
 

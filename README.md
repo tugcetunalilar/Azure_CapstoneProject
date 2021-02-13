@@ -27,140 +27,34 @@ Below are the settings and configuration for AutoML experiment:
 
 ![AutoMLSettingsandConfiguration](Images/AutoMLSettingsandConfiguration.png "AutoML Settings")
 
-## Hyperparameter search: types of parameters and their ranges
+## Results:
+The best model from AutoML was the one that used VotingEnsemble, which is a amalgam of different models, with an accuracy of 88%. Below are the details of the primary metric and the parameters of the model:
 
-As machine learning task at hand was of Classification, we use Sci-kit Learn Logistic Regression classifier. 
-We decided to tune two hyperparameters as follows: 
+![AutoMLBestModel2](Images/AutoMLBestModel2.png "AutoML Best Model")
 
-i) C: This controls regularization in model i.e co-efficient values. It is inverse of regularization strength  i.e smaller values cuase stronger regularization. We tested it using Hyperdrive using a unform sample space from 0 to 1.
+![AutoMLParameters](Images/AutoMLParameters.png "AutoML Parameters")
 
-ii) max_iter: Maximum number of iterations allowed for model to converge. We tested it using Hyperdrive using a set sample of list values 50,100,150,200,250.
+## Hyperparameter Tuning:
+We chose Sci-kit learn logistic regression classifier for this model as the AutoML used classification. For this model, we tuned 2 hyperparameters: C and max_iter. Parameter C is the inverse of regularization strength, meaning it controls the regularization in a model, and we tested it using a sample space from 0.001 to 1000. Max_iter is the maximum number of iterations for the model to converge. We used random sampling. Below are the actual values we used for the experiment:
 
-Hyperdrive parameter sampler was RamdomParameterSampling. This rendomly selects paramter values from sample space provided. 
+C: The inverse of the reqularization strength. '--C' : choice(0.001,0.01,0.1,1,10,20,50,100,200,500,1000),
+max_iter: Maximum number of iterations to converge. '--max_iter': choice(50,100,300)
 
-Hyperdrive was configured to select best parameters using highest accuracy scored produced and the goal was to maximize the accuracy metric. A total of 40 model runs were alowed with 4 max concurrent runs. 
+## Results:
+The model achieved an accuracy of 81%. The parameter results from the hyperdrive are: ['--C', '0.1', '--max_iter', '100'].
 
+![HyperDriveWidgetsRunning](Images/HyperDriveWidgetsRunning.png "HyperDrive Widgets")
 
-## Two models with the best parameters
-
-i) From AutoML experiment best model selected was VotingEnsemble with 88% accuracy. Details of its parameters are as follows:
-- min_child_weight=1,
-- missing=nan,
-- n_estimators=10,
-- n_jobs=1,
-- nthread=None,
-- objective='reg:logistic',
-- random_state=0,
-- reg_alpha=0,
-- reg_lambda=0.625,
-- scale_pos_weight=1,
-- seed=None,
-- silent=None,
-- subsample=1,
-- tree_method='auto', 
-- flatten_transform=None,
-- weights=[0.125, 0.125, 0.125,  0.125, 0.125, 0.125, 0.125, 0.125]
-       
-         
-   Run(Experiment: capstone-Automl,
-Id: AutoML_8934d6c4-8831-4d4b-98e5-907b3bdab98d_40,
-Type: azureml.scriptrun,
-Status: Completed)
-
-{'precision_score_weighted': 0.8958617020161247, 'average_precision_score_micro': 0.9269018734864382, 'AUC_weighted': 0.9191387579070647, 'balanced_accuracy': 0.8511186336229242, 'matthews_correlation': 0.7423301682990012, 'f1_score_weighted': 0.8784478545347623, 'precision_score_macro': 0.8941003107622102, 'precision_score_micro': 0.8831034482758622, 'f1_score_macro': 0.8596588655909961, 'recall_score_weighted': 0.8831034482758622, 'f1_score_micro': 0.8831034482758622, 'weighted_accuracy': 0.9035554026334669, 'log_loss': 0.3830698345834191, 'recall_score_macro': 0.8511186336229242, 'AUC_macro': 0.9191387579070645, 'norm_macro_recall': 0.7022372672458486, 'average_precision_score_weighted': 0.9299034435441277, 'accuracy': 0.8831034482758622, 'average_precision_score_macro': 0.9077163867341911, 'recall_score_micro': 0.8831034482758622, 'AUC_micro': 0.9237253269916765, 'confusion_matrix': 'aml://artifactId/ExperimentRun/dcid.AutoML_8934d6c4-8831-4d4b-98e5-907b3bdab98d_40/confusion_matrix', 'accuracy_table': 'aml://artifactId/ExperimentRun/dcid.AutoML_8934d6c4-8831-4d4b-98e5-907b3bdab98d_40/accuracy_table'}
-
-
-ii) From Sci-kit Learn trained model , tuned with Hyperdrive, best model was  Logistic Regression with 83 % accuracy. Details of its parameters are as follows:
-
-['--C', '0.8848572144734638', '--max_iter', '100']
-
+![HyperDriveChildRuns](Images/HyperDriveChildRuns.png "HyperDrive Runs")
 
 ## Deployed model and instructions on how to query the endpoint with a sample input
+We selected the model to deploy based on the primary metric, so we selected the autoML model as it had a higher accuracy of 88%. 
+To deploy the model, we used the interface for deployment. We deployed the AutoML using ACI. A REST API is produced at the end of deployment, which provides scoring uri with keys for authentication. 
 
-Based on higher accuracy metric produced, we selected VotingEnsemble model produced by AutoML experiment for deployment. 
-In order to deploy it , we first registerd the model and provided it an environment for deployment. We took advantage of Azure provided environment "AzureML-AutoML" . 
-We set up Inference Configuration and provided it with a scoring file, this file contained API model (i.e fields that API would need for data interchange).
-We then deployed the model using Azure Container Instance Webservices (Aci). Deployment enabled a REST API that provide scoring uri with keys for authentication. 
-We passed test data inform of Json load to webservice configured and it validated our deployment by providing a response in expected format (1,0)
+![AutoMLDeployment](Images/AutoMLDeployment.png "AutoML Deployment")
 
-
-## How to improve the project in the future
-
-We can suggest following improvments that may result in better model or faster model deployment:
-
-i) Use more powerful computer cluster such as GPU instanced with more nodes. This may enable increase in concurrent iterations.
-
-ii) Data has class imbalance with many 1/3 deaths events vs 2/3 non deaths events. We might address it by procuring more data.
-
-iii) We need to assess Classifiers that AutoML had not tested and hyperparameters that were not configured. We might further wish to train our data using those model and parameters by using hyperdrive run and experiment with a different set of parameters.
-
-iv) In Hyperdrive experimnet test might use more classifiers including some of ensemble classifiers as identified by AutoML. This might improve model performance by identifying a faster and more accurate model. 
-
-v) In Hyperdrive experiment use Bayesian Parameter sampling: This might make experiment run faster and be able to quickly identify best hyperparameter.
-
-vii) In Hyperdrive experiment test more hyperparameter for tuning such as penalty, solver, class_weight etc. They might improve model performance by testing a hyperparameter combination that is able to yield more accurate model.
-
-iv) In Hyperdrive experiment to address class imbalance in data by either using SMOTE resampling technique or using class_weight parameter.
-
-vi) In Hyperdrive experiment we have now performed any feature engineering or data standarization/normalization. Conversely we have not performed any Principal Component Analysis (PCA) to identify features with best predictive powers. We might perform these steps/techniques to improve score of model on accuracy metric.
-
-vii) We might select further types of classifiers from Sci-kit learn library like Decision Tree classifier etc and train them to get a model with better accuracy score.
+##Screen Recording
+*Youtube Link* -  - This is a video [screencast](https://www.youtube.com/watch?v=umoGFVxqQRQ&feature=youtu.be) of my going through the screenshots and the flow of the project. 
 
 
-## Screen shots with a short description
-
-i) AutoML Model: 
-
--screenshot of the RunDetails widget that shows the progress of the training runs of the different experiments.
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/AutoML_RunWidget1.png)
-
-
--screenshot of the best model based in accuracy metric with its run id.
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/AutoML_BestModel2.png)
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/AutoML_BestModel3.png)
-
-
-ii) Hyperdrive Model:
-
--Screenshot of the RunDetails widget that shows the progress of the training runs of the different experiments.
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/HyperDrive_Runwidget1.png)
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/HyperDrive_Runwidget2.png)
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/HyperDrive_Runwidget3.png)
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/HyperDrive_Runwidget4.png)
-
-
--screenshot of the best model with its run id and the different hyperparameters that were tuned.
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/HyperDrive_BestModel5.png)
-
-
-
-Deploying the Model:
-
--screenshot showing the deployed model, endpoint as active.
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/Model_EndPoint1.png)
-
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/Model_EndPoint2.png)
-
-
--After completion of eperiment, Webservice is being deleted
-
-![](https://github.com/nabeelsana/Capstone_Project/blob/master/starter_file/Webservicedeleted1.png)
 

@@ -10,6 +10,8 @@ The capstone project is the last part of the Azure Nanodegree Program, Machine L
 
 For this project, we used the data on heart failure records from Kaggle. The file contains information on 299 patients who were treated at a hospital in Punjab region of Pakistan betweeen April and December 2015. Out of the 299 patients, 105 were women and 194 were men. The age range is between 40 and 95 years old. There are additional data points on patients in the dataset that include the chronic conditions they have (diabetes, anemia, high blood pressure, smoking), levels of certain blood cells and minerals in the blood (CPK, platelets, serum creatinine, serum sodium), blood ejection fraction, follow-up days and whether the patient died during follow-up. The task was to use these various features to predict the likelihood of patient's passing during the follow-up period. 
 
+![HeartFailureRecordsDataset](Images/HeartFailureRecordsDataset.png "Heart Failure Dataset")
+
 ## Access
 I downloaded the csv file from [Kaggle!](https://www.kaggle.com/andrewmvd/heart-failure-clinical-data). Then we uploaded it to the workspace, saved it as a tabular dataset and set the column names. For AutoML experiment, we read this file from the workspace. For our hyperdrive experiment, we accessed it using the Github directory and converted it to dataframe for experimental purposes.
 

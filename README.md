@@ -103,6 +103,8 @@ max_iter: Maximum number of iterations to converge. '--max_iter': choice(50,100,
 ## Results:
 The model achieved an accuracy of 81%. The parameter results from the hyperdrive are: ['--C', '0.1', '--max_iter', '100'].
 
+![HyperDriveModelID](Images/HyperDriveModelID.png "HyperDrive Model ID")
+
 ![HyperDriveWidgetsRunning](Images/HyperDriveWidgetsRunning.png "HyperDrive Widgets")
 
 ![HyperDriveChildRuns](Images/HyperDriveChildRuns.png "HyperDrive Runs")

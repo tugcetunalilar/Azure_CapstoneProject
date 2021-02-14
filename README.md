@@ -36,6 +36,21 @@ The best model from AutoML was the one that used VotingEnsemble, which is a amal
 
 Below is a list of all metrics:
 
+                                                                                                min_child_weight=1,
+                                                                                                min_split_gain=0.2631578947368421,
+                                                                                                n_estimators=50,
+                                                                                                n_jobs=1,
+                                                                                                num_leaves=104,
+                                                                                                objective=None,
+                                                                                                random_state=None,
+                                                                                                reg_alpha=0,
+                                                                                                reg_lambda=0.42105263157894735,
+                                                                                                silent=True,
+                                                                                                subsample=1,
+                                                                                                subsample_for_bin=200000,
+                                                                                                subsample_freq=0,
+                                                                                                verbose=-10))],
+
 Accuracy
 0.87966
 AUC macro

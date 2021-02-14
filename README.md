@@ -25,7 +25,7 @@ Below are the settings and configuration for AutoML experiment:
 - Task defined as classification
 - Early stopping enabled as Bandit Policy
 
-I chose the settings to make sure the experiment ran correctly but also did not waste resources. I chose a timeout of 20 minutes to limit the time of the experiments and 5 as the maximum number oc concurrent iterations to limit the resources. I chose the primary metric accuracy, as it was easy to work for both automl and hyperdrive in the time I had - AUC could have been better. My task was a classification task. Early stopping as True is designed to save resources with Bandit policy. BanditPolicy is used here which is an "aggressive" early stopping policy. It is preferrable because it prevents more runs compared to more conservative policies and saves more computational time. 
+I chose the settings to make sure the experiment ran correctly but also did not waste resources. I chose a timeout of 20 minutes to limit the time of the experiments and 5 as the maximum number of concurrent iterations to limit the resources. I chose the primary metric accuracy, as it was easy to work for both automl and hyperdrive in the time I had - AUC could have been better. My task was a classification task. Early stopping as True is designed to save resources with Bandit policy. BanditPolicy is used here which is an "aggressive" early stopping policy. It is preferrable because it prevents more runs compared to more conservative policies and saves more computational time. 
 ![AutoMLSettingsandConfiguration](Images/AutoMLSettingsandConfiguration.png "AutoML Settings")
 
 ## Results:

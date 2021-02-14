@@ -74,6 +74,11 @@ Recall score macro
 0.84759
 Recall score micro
 0.87966
+
+Here is a snapshot of AutoML widgets:
+
+![AutoMLRunWidgets](Images/AutoMLRunWidgets.png "AutoML Run Dettails")
+
 ## Hyperparameter Tuning:
 We chose Sci-kit learn logistic regression classifier for this model as the AutoML used classification. For this model, we tuned 2 hyperparameters: C and max_iter. Parameter C is the inverse of regularization strength, meaning it controls the regularization in a model, and we tested it using a sample space from 0.001 to 1000. Max_iter is the maximum number of iterations for the model to converge. We used random sampling. Below are the actual values we used for the experiment:
 

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The capstone project is the last part of the Azure Nanodegree Program, Machine Learning Engineer with Microsoft Azure. For this project, we were required to find an external dataset and use machine learning methods to make predictions. For this project, we used the heart failure records data that exist in Kaggle, and applied machine learning methods to it to predict the likelihood of survival of a patient who has heart failure problems. To do this, we used AutoML and another custom model that uses Logistic regression and selected the best model based on the primary metric we defined, which we defined as accuracy and compared the two models based on this. 
+The capstone project is the last part of the Azure Nanodegree Program, Machine Learning Engineer with Microsoft Azure. For this project, we were required to find an external dataset and use machine learning methods to make predictions. So we used the heart failure records data that exist in Kaggle, and applied machine learning methods to it to predict the likelihood of survival of a patient who has heart failure problems. To do this, we used AutoML and another custom model that uses Logistic regression and selected the best model based on the primary metric we defined, which we defined as accuracy and compared the two models based on this. 
 
 ## Dataset
 

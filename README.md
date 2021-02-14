@@ -32,7 +32,7 @@ The best model from AutoML was the one that used VotingEnsemble, which is a amal
 
 ![AutoMLBestModel2](Images/AutoMLBestModel2.png "AutoML Best Model")
 
-![AutoMLParameters](Images/AutoMLParameters.png "AutoML Parameters")
+![AutoMLIDMetrics](Images/AutoMLIDMetrics.png "AutoML ID and Metrics")
 
 Below is a list of all metrics:
 
